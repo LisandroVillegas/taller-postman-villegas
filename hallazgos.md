@@ -100,3 +100,19 @@ Para corregir un error en un solo campo usaria PATCH ya que me deja hacerlo poni
 
 ### Peticion 7: DELETE
 En el delete obtuve 200 Ok y el cuerpo fue un objeto vacio {}
+
+
+
+## Tarea 10: valores límite
+
+| id | Código obtenido |
+|---|---|
+| 99 | _200 Ok__ |
+| 100 | 200 OK |
+| 101 | 404 Not Found |
+
+
+El id más alto que devuelve 200 es 100 y el primero que devuelve 404 es 101.
+Este tipo de caso de prueba se llama valores limite , y los defectos se concentran ahí porque el comportamiento cambia justo en esa frontera, y ahi es onde los programadores más se equivocan ya que un  error típico es escribir < en vez de <= en una condicion (un error "por uno").
+
+
