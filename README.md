@@ -1,9 +1,8 @@
 # Taller de APIs y Pruebas con Postman
 
 **Estudiante:** Lisandro Villegas Henao
-
-
-**Asignatura:** Ingeniería de Software II  
+**Código:** 1113860384
+**Asignatura:** Ingeniería de Software II — Cotecnova
 
 ## Marco conceptual
 
