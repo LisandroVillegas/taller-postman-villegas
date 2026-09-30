@@ -48,3 +48,37 @@ Fuentes consultadas:
 
 - IBM Docs, *Códigos de estado y expresiones de razón*: https://ibm.com/docs/es/SSGMCP_6.1.0/fundamentals/web/dfhtl_httpstatus.html
 - Infomaniak, *Comprender los errores HTTP*: https://infomaniak.com/es/asistencia/faq/257/comprender-los-errores-http
+
+## Cómo reproducir este taller
+
+Para ejecutar esta colección y verificar todas las pruebas de la API en Postman, sigue estos pasos:
+
+1. **Clonar el repositorio:** Abre una terminal y ejecuta el siguiente comando para clonar el proyecto en tu máquina local:
+   ```bash
+   git clone https://github.com/tu-usuario/taller-postman-villegas.git
+
+Abrir Postman.
+
+Importar la colección:
+
+Haz clic en el botón Import (esquina superior izquierda).
+
+Selecciona el archivo coleccion.json ubicado en la raíz de este proyecto.
+
+Ejecutar las pruebas:
+
+Haz clic derecho sobre la colección Taller-API importada y selecciona Run collection (Collection Runner).
+
+Presiona Run Taller-API para verificar la ejecución automática de las peticiones y los resultados de los scripts en la pestaña Test Results.
+
+## Archivos de este repositorio
+
+README.md: Documento principal con la presentación, marco conceptual, tabla de métodos HTTP, clasificación de códigos de estado y guía de ejecución.
+
+hallazgos.md: Registro de experimentos prácticos, análisis de pruebas de frontera (404), comparación PUT vs. PATCH, persistencia tras DELETE, rutas anidadas y los 3 scripts de pruebas automatizadas (pm.expect).
+
+conclusiones.md: Análisis sobre la importancia de la idempotencia en servicios REST, inspección de cabeceras de respuesta HTTP (Headers) y fuentes bibliográficas consultadas.
+
+coleccion.json: Archivo exportado de Postman v2.1 que contiene la estructura completa de carpetas, peticiones y scripts de validación.
+
+evidencias/: Carpeta que almacena las capturas de pantalla tomadas durante la ejecución de las pruebas en Postman. 
