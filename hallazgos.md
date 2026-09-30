@@ -150,3 +150,39 @@ Resultado con 200: verde (evidencias/05-test-automatico.png)
 Resultado con 201: rojo (evidencias/05-test-automatico-rojo.png)
 ¿Por qué es importante ver fallar una prueba? Una prueba que siempre sale en verde no te dice nada, porque no sabes si de verdad comprueba algo o está mal escrita. Puede tener un error, o comprobar algo que siempre se cumple, y te daría una falsa seguridad. Al cambiar el 200 por 201, la respuesta real seguía siendo 200, así que la prueba detectó que no coincidía y se puso en rojo. Ahí demostraste que la prueba funciona y reacciona cuando algo está mal.
 
+## Tarea 13: Pruebas automatizadas con scripts en Postman (pm.expect)
+
+Para automatizar la validación de las respuestas HTTP, escribí tres pruebas personalizadas utilizando la sintaxis JavaScript de Postman (`pm.test` y `pm.expect`) en la pestaña **Scripts / After response** de la petición `GET https://jsonplaceholder.typicode.com/posts/1`.
+
+### Código de las pruebas implementadas
+
+```javascript
+// Prueba 1: Verificar el tiempo de respuesta
+pm.test("El tiempo de respuesta es menor a 1000 ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(1000);
+});
+
+// Prueba 2: Verificar la existencia de un campo en el JSON
+pm.test("La respuesta contiene el campo 'title'", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.have.property('title');
+});
+
+// Prueba 3: Verificar el tipo de dato de un atributo
+pm.test("El campo 'id' es de tipo numero", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.id).to.be.a('number');
+});
+
+
+Validación de rendimiento (responseTime): Comprueba que la latencia del servidor sea adecuada para una buena experiencia de usuario, verificando que el tiempo de respuesta no supere los 1000 milisegundos (en mis ejecuciones arrojó entre 75 ms y 230 ms).
+
+Validación de la propiedad (to.have.property): Garantiza que la respuesta cumpla con la estructura esperada de la API al verificar que el JSON devuelto contenga explícitamente el campo title.
+
+Validación del tipo de dato (to.be.a): Verifica que el valor asignado al campo id sea de tipo numérico y no una cadena de texto, previniendo errores de formateo en el desarrollo frontend.
+
+Fuentes consultadas:
+
+Postman Learning Center, Write scripts to test API responses: https://learning.postman.com/docs/writing-scripts/test-scripts/
+
+Postman Learning Center, Postman JavaScript reference: https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/
