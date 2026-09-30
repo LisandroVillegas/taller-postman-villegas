@@ -141,3 +141,12 @@ Se lee de izquierda a derecha, de lo general a lo específico. /posts es todas l
 El campo postId lo confirma. En cada comentario, postId: 1 dice a qué publicación pertenece, y ese 1 es el mismo de la URL. O sea, la URL anidada muestra una relación que ya está en los datos.
 Con todos pasa igual. Cada tarea trae userId, así que sigue el mismo patrón: las tareas del usuario 1 serían /users/1/todos. La guía oficial de JSONPlaceholder lista esa ruta entre las disponibles, y también dice que /posts/1/comments equivale a /comments?postId=1.
 Lo que tienen en común todas las URL: empiezan con el nombre del recurso en plural (/posts, /users, /todos) y, si quieres uno solo, le agregas su id.
+
+
+## Tarea 12: primera prueba automática
+
+Código de la prueba: (el bloque pm.test con el 200)
+Resultado con 200: verde (evidencias/05-test-automatico.png)
+Resultado con 201: rojo (evidencias/05-test-automatico-rojo.png)
+¿Por qué es importante ver fallar una prueba? Una prueba que siempre sale en verde no te dice nada, porque no sabes si de verdad comprueba algo o está mal escrita. Puede tener un error, o comprobar algo que siempre se cumple, y te daría una falsa seguridad. Al cambiar el 200 por 201, la respuesta real seguía siendo 200, así que la prueba detectó que no coincidía y se puso en rojo. Ahí demostraste que la prueba funciona y reacciona cuando algo está mal.
+
