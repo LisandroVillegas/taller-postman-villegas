@@ -116,3 +116,28 @@ El id más alto que devuelve 200 es 100 y el primero que devuelve 404 es 101.
 Este tipo de caso de prueba se llama valores limite , y los defectos se concentran ahí porque el comportamiento cambia justo en esa frontera, y ahi es onde los programadores más se equivocan ya que un  error típico es escribir < en vez de <= en una condicion (un error "por uno").
 
 
+## Tarea 11: otros recursos y ruta anidada
+
+### Recurso 1: GET /users
+
+- **Código de estado:** 200 OK
+- **Cuántos elementos trae:** 10
+- **Campos:** `id`, `name`, `username`, `email` y `address`. Dentro de `address` hay `street`, `suite`, `city`, `zipcode` y `geo` (que a su vez tiene `lat` y `lng`).
+
+### Recurso 2: GET /todos
+
+- **Código de estado:** 200 OK
+- **Cuántos elementos trae:** 200
+- **Campos:** `userId`, `id`, `title` y `completed`.
+
+### Ruta anidada: GET /posts/1/comments
+
+- **Código de estado:** 200 OK
+- **Cuántos comentarios trae:** id:5
+- **Campos:** postId, id, name, email y body
+
+### Cómo deduje la estructura de las URL
+Se lee de izquierda a derecha, de lo general a lo específico. /posts es todas las publicaciones, /posts/1 es la publicación 1, y /posts/1/comments son los comentarios de esa publicación.
+El campo postId lo confirma. En cada comentario, postId: 1 dice a qué publicación pertenece, y ese 1 es el mismo de la URL. O sea, la URL anidada muestra una relación que ya está en los datos.
+Con todos pasa igual. Cada tarea trae userId, así que sigue el mismo patrón: las tareas del usuario 1 serían /users/1/todos. La guía oficial de JSONPlaceholder lista esa ruta entre las disponibles, y también dice que /posts/1/comments equivale a /comments?postId=1.
+Lo que tienen en común todas las URL: empiezan con el nombre del recurso en plural (/posts, /users, /todos) y, si quieres uno solo, le agregas su id.
